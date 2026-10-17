@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2048 新玩法体验台</title>
+<style>body{margin:0;background:#f5f5ed;color:#36533a;font:16px system-ui,sans-serif}main{max-width:540px;margin:12vh auto;padding:24px}h1{font-size:36px}p{line-height:1.8;color:#718066}button,a{display:block;box-sizing:border-box;width:100%;padding:20px;margin:16px 0;border:0;border-radius:16px;background:#385a3b;color:white;font:600 17px system-ui;text-align:left;cursor:pointer;text-decoration:none}small{display:block;margin-top:7px;font-weight:400;color:#dfe8d4}a{background:#e4e9da;color:#36533a}</style>
+<main><p>仅浏览器开发预览 · 不随小游戏上传</p><h1>试试两种新玩法</h1>
+<p>载入示例会重置本预览地址的棋盘，并补满 3 格能量，方便直接操作底部技能。</p>
+<button id="fold">体验「折一下」<small>底部点折一下 → 自动择优并立即折叠</small></button>
+<button id="mail">体验「未来快递」<small>底部点未来快递 → 点空格选地址 → 寄出 → 有效滑动两次</small></button>
+<a href="index.html">继续当前预览棋盘 →</a></main>
+<script>
+function load(board){localStorage.setItem('2048-save',JSON.stringify({board,score:0,steps:0,continued:false,next:2,energy:3,combo:0}));location.href='index.html';}
+document.getElementById('fold').onclick=()=>load([2,4,4,2,8,16,32,64,0,0,0,0,0,0,0,0]);
+document.getElementById('mail').onclick=()=>load([64,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+</script></html>
